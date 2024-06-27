@@ -19,3 +19,6 @@ This project allows users to effortlessly add, edit, delete, and archive notes, 
 4. Auth js - Authentication
 5. Shadcn/ui - components
 
+### dependencies
+
+express, dotenv, bcryptjs, mongoose, cors, nodemon
