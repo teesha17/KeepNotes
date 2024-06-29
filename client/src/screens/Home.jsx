@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     const [notes, setNotes] = useState([]);
@@ -70,8 +71,8 @@ export default function Home() {
             ) : (
                 <div>
                     <h2>Welcome</h2>
-                    <button onClick={() => window.location.href = '/login'}>Login</button>
-                    <button onClick={() => window.location.href = '/signup'}>Sign Up</button>
+                    <Link to='/signup'>Signup</Link>
+                    <Link to='/login'>Login</Link>
                 </div>
             )}
         </div>
