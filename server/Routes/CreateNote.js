@@ -108,4 +108,28 @@ router.put('/updatenote/:email/:title', [
     }
 });
 
+// Display user's notes route
+router.get('/notes/:email', [
+    param('email').isEmail().withMessage('Email must be valid')
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { email } = req.params;
+
+    try {
+        let userNotes = await Notes.findOne({ email });
+        if (!userNotes) {
+            return res.status(404).json({ success: false, error: 'Notes not found for this email' });
+        }
+        
+        res.json({ success: true, notes: userNotes.notes_data });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, error: 'Server error' });
+    }
+});
+
 module.exports = router;
