@@ -59,7 +59,7 @@ let navigate = useNavigate();
     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value={credentials.password} onChange={handleChange}/>
   </div>
   <button type="submit" className="m-3 btn btn-dark">Submit</button>
-  <Link to="/createuser" className='m-3 btn btn-danger'>Not a user?</Link>
+  <Link to="/signup" className='m-3 btn btn-danger'>Not a user?</Link>
 </form>
 </div>
    
